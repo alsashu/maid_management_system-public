@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .stars {
+        display: inline-block;
+        unicode-bidi: bidi-override;
+        color: #ccc;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .stars:hover,
+    .stars:hover ~ .stars {
+        color: #ffcc00;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Feedback Form</h1>
+    <div>
+        <p>Punctuality:</p>
+        <span class="stars" onclick="setRating(1)">☆</span>
+        <span class="stars" onclick="setRating(2)">☆</span>
+        <span class="stars" onclick="setRating(3)">☆</span>
+        <span class="stars" onclick="setRating(4)">☆</span>
+        <span class="stars" onclick="setRating(5)">☆</span>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <div>
+        <p>Attention to Detail:</p>
+        <span class="stars" onclick="setRating(1)">☆</span>
+        <span class="stars" onclick="setRating(2)">☆</span>
+        <span class="stars" onclick="setRating(3)">☆</span>
+        <span class="stars" onclick="setRating(4)">☆</span>
+        <span class="stars" onclick="setRating(5)">☆</span>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <div>
+        <p>Communication Skills:</p>
+        <span class="stars" onclick="setRating(1)">☆</span>
+        <span class="stars" onclick="setRating(2)">☆</span>
+        <span class="stars" onclick="setRating(3)">☆</span>
+        <span class="stars" onclick="setRating(4)">☆</span>
+        <span class="stars" onclick="setRating(5)">☆</span>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <div>
+        <p>Trustworthiness:</p>
+        <span class="stars" onclick="setRating(1)">☆</span>
+        <span class="stars" onclick="setRating(2)">☆</span>
+        <span class="stars" onclick="setRating(3)">☆</span>
+        <span class="stars" onclick="setRating(4)">☆</span>
+        <span class="stars" onclick="setRating(5)">☆</span>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <div>
+        <p>Job Competency:</p>
+        <span class="stars" onclick="setRating(1)">☆</span>
+        <span class="stars" onclick="setRating(2)">☆</span>
+        <span class="stars" onclick="setRating(3)">☆</span>
+        <span class="stars" onclick="setRating(4)">☆</span>
+        <span class="stars" onclick="setRating(5)">☆</span>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <textarea name="feedback" id="feedback" placeholder="Additional Information"></textarea>
+    <input type="submit" value="Submit">
+</div>
+<script>
+    function setRating(rating) {
+        document.getElementById('rating').value = rating;
+        for (let i = 1; i <= 5; i++) {
+            const star = document.getElementsByClassName('stars')[i - 1];
+            if (i <= rating) {
+                star.textContent = '★';
+            } else {
+                star.textContent = '☆';
+            }
+        }
+    }
+</script>
+</body>
+</html>

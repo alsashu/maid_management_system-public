@@ -1,0 +1,365 @@
+﻿@{
+    ViewData["Title"] = "FindMaid";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+<style>
+    img.maid-icon {
+        bottom: -15px;
+        width: 135px;
+    }
+
+    #map {
+        height: 100%;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4 class="page-heading">Find Maid</h4>
+            <p>Let us know what you are looking for so that we can give you suggestions </p>
+        </div>
+        <div class="col-4">
+            <div class="maid-box">
+                <img src="~/content-mfolio/images/maid.svg" class="maid-icon" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="maincontainer innerpage">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @*<div class="mb-3">
+                        <label for="services" class="form-label block">Gender</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input name="gender" class="form-check-input" type="checkbox" id="male" value="male">
+                                    <label class="form-check-label" for="male">male</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input name="gender" class="form-check-input" type="checkbox" id="female" value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="mb-3">
+                    <label for="Address" class="form-label">Location</label>
+                    <input type="text" class="form-control" autocomplete="off" onfocusout="javascript:onSearch(event);" id="location" name="location" placeholder="Area : HSR, Madiwala, Whitefield..">
+                    <input type="text" class="form-control" autocomplete="off" onfocusout="javascript:onSearch(event);" id="community" name="community" placeholder="Comunity : Prestige shantiniketan, shobha esplanade...">
+                </div>
+                <div class="mb-3">
+                    <label for="services" class="form-label block">Services</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input name="services" class="form-check-input" type="checkbox" id="cooking" value="cooking" onclick="javascript:onSearch(this)">
+                                <label class="form-check-label" for="cooking">Cooking</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="cleaning" value="cleaning">
+                                <label class="form-check-label" for="cleaning">Cleaning</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="babysitter" value="babysitter">
+                                <label class="form-check-label" for="babysitter">Baby Sitter</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="washing" value="washing">
+                                <label class="form-check-label" for="washing">Cloth Washing</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input name="services" class="form-check-input" type="checkbox" id="patient" value="patient">
+                                <label class="form-check-label" for="unmarried">Patient Care</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="eldercare" value="eldercare">
+                                <label class="form-check-label" for="eldercare">Elder Care</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="kitchenhelper" value="kitchenhelper">
+                                <label class="form-check-label" for="kitchenhelper">Kitchen Helper</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="services" class="form-check-input" type="checkbox" id="japamaid" value="japamaid">
+                                <label class="form-check-label" for="japamaid">Japa Maid</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 "></div>
+            <div class="col-md-5">
+                <div class="mb-3">
+                    <label for="services" class="form-label block">Language</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input name="language" class="form-check-input" type="checkbox" id="kannada" value="kannada">
+                                <label class="form-check-label" for="kannada">Kannada</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="malayalan" value="malayalan">
+                                <label class="form-check-label" for="malayalan">Malayalam</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="tamil" value="tamil">
+                                <label class="form-check-label" for="tamil">Tamil</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="gujarati" value="gujarati">
+                                <label class="form-check-label" for="gujarati">Gujarati</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input name="language" class="form-check-input" type="checkbox" id="hindi" value="hindi">
+                                <label class="form-check-label" for="hindi">Hindi</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="telugu" value="telugu">
+                                <label class="form-check-label" for="telugu">Telugu</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="english" value="english">
+                                <label class="form-check-label" for="english">English</label>
+                            </div>
+                            <div class="form-check mt">
+                                <input name="language" class="form-check-input" type="checkbox" id="bengali" value="bengali">
+                                <label class="form-check-label" for="bengali">Bengali</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="marital" class="form-label block">Working Hours</label>
+                    <div class="row">
+                        <div class="col6">
+                            <div class="form-check">
+                                <input name="working" class="form-check-input" type="checkbox" id="parttime" value="parttime">
+                                <label class="form-check-label" for="parttime">Part Time ( Hourly basis)</label>
+                            </div>
+
+                            <div class="form-check mt">
+                                <input name="working" class="form-check-input" type="checkbox" id="fulltime" value="fulltime">
+                                <label class="form-check-label" for="fulltime">Full Time ( 8-10 Hours)</label>
+                            </div>
+
+                            <div class="form-check mt">
+                                <input name="working" class="form-check-input" type="checkbox" id="livein" value="livein">
+                                <label class="form-check-label" for="livein">Live-in ( 24 hours, Stay with Client)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-footer ">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12 col-lg-10">
+                    @*<label class="form-check-label" for="searchedBy">Searched by:</label>
+                    <p id="message"></p>*@
+                </div>
+
+                <div class="col-md-12 col-lg-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="isSaveSearch" value="isSaveSearch" title="The saved search will be availabe under profile.">
+                        <label class="form-check-label" for="isSaveSearch">Save this search.</label>
+                    </div>
+                    <!-- <button type="submit" class="btn btnmain btn-large search-button">Search</button> -->
+                    <button class="btn btnmain btn-large search-button" onclick="javascript:onSearchReal();">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup-bg"></div>
+
+<div id="search_result" style="display: none;">
+    <div class="maincontainer innerpage">
+        <div class="container">
+            <h1>Search Result</h1>
+            <div id="search_row" class="row">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function onSearch(event) {
+        debugger;
+        const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
+        const languageCheckboxes = document.querySelectorAll('input[name="language"]:checked');
+        const workingCheckboxes = document.querySelectorAll('input[name="working"]:checked');
+
+        const selectedValues = {
+            gender: [],
+            services: [],
+            language: [],
+            working: [],
+        };
+
+        serviceCheckboxes.forEach(checkbox => {
+            selectedValues.services.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        languageCheckboxes.forEach(checkbox => {
+            selectedValues.language.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        workingCheckboxes.forEach(checkbox => {
+            selectedValues.working.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        const value = event.target.value;
+        const name = event.target.name;
+        //const message = document.getElementById('message');
+        //message.textContent = `Event: ${name} You entered: ${value}`;
+
+        let obj = new Object();
+        obj.Gender = selectedValues.gender;
+        obj.Services = selectedValues.services;
+        obj.Language = selectedValues.language;
+        obj.Working = selectedValues.working;
+        obj.IsSaveSearch = document.getElementById("isSaveSearch").checked;
+        if (name == 'community') {
+            obj.Community = $('#community').val();
+        }
+        if (name == 'location') {
+            obj.Location = $('#location').val();
+        }
+
+        $.ajax({
+            url: "/business/home/search",
+            data: obj,
+            cache: true,
+            type: "POST",
+            success: function (data) {
+                var divrow = document.getElementById("search_row");
+                divrow.innerHTML = "";
+
+                var div = document.getElementById("search_result");
+                div.style.display = "block";
+
+                pdata = JSON.parse(data);
+                var inner_html = "";
+                for (var i = 0; i < pdata.Records.length; i++) {
+                    let servicesAsArray = JSON.parse(pdata.Records[i].services);
+                    const servicesAsString = servicesAsArray.join(', ');
+
+                    const img_data = "data:image/;base64," + pdata.Records[i].filedata;
+
+                    let date = new Date(pdata.Records[i].availablefrom);
+                    let day = ("0" + date.getDate()).slice(-2);
+                    let month = ("0" + (date.getMonth() + 1)).slice(-2);
+                    let year = date.getFullYear();
+                    let formattedDate = day + "-" + month + "-" + year;
+
+                    inner_html = inner_html + '<div class="col-md-6 col-lg-4 d-flex align-items-stretch "><div class="maidcard"><div class="row"><div class="col-4 col-sm-5 col-md-4 col-lg-5"><img src="' + img_data + '" alt=""><div class="rating"><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_grey.svg" alt=""></div><div class="review"><a href="#">12 reviews</a></div></div><div class="col-8 col-sm-7 col-md-8 col-lg-7"><div class="details"><span class="name">' + pdata.Records[i].firstname + ' ' + pdata.Records[i].lastname + '</span><span class="age">' + pdata.Records[i].experienceinyears + ' years ' + pdata.Records[i].experienceinmonths + ' months ' + '</span></div><div class="details"><span class="label">Services offered</span><span class="value">' + servicesAsString + '</span></div><div class="details"><span class="label">Available from</span><span class="value">' + formattedDate + '</span></div><a onclick="onViewDetails(\'' + pdata.Records[i].id + '\')" class="btn btn-view-details">View Details</a></div></div></div></div>';
+                }
+                divrow.innerHTML = inner_html;
+            }
+        });
+
+    }
+
+    function onSearchReal() {
+
+        //const genderCheckboxes = document.querySelectorAll('input[name="gender"]:checked');
+        const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
+        const languageCheckboxes = document.querySelectorAll('input[name="language"]:checked');
+        const workingCheckboxes = document.querySelectorAll('input[name="working"]:checked');
+
+        const selectedValues = {
+            gender: [],
+            services: [],
+            language: [],
+            working: [],
+        };
+
+        //genderCheckboxes.forEach(checkbox => {
+        //    selectedValues.gender.push(checkbox.value);
+        //    console.log(checkbox.value);
+        //});
+
+        serviceCheckboxes.forEach(checkbox => {
+            selectedValues.services.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        languageCheckboxes.forEach(checkbox => {
+            selectedValues.language.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        workingCheckboxes.forEach(checkbox => {
+            selectedValues.working.push(checkbox.value);
+            console.log(checkbox.value);
+        });
+
+        let obj = new Object();
+        obj.Gender = selectedValues.gender;
+        obj.Services = selectedValues.services;
+        obj.Language = selectedValues.language;
+        obj.Working = selectedValues.working;
+        obj.IsSaveSearch = document.getElementById("isSaveSearch").checked;
+        obj.Community = $('#community').val();
+        obj.Location = $('#location').val();
+
+        $.ajax({
+            url: "/business/home/search",
+            data: obj,
+            cache: true,
+            type: "POST",
+            success: function (data) {
+                var divrow = document.getElementById("search_row");
+                divrow.innerHTML = "";
+
+                var div = document.getElementById("search_result");
+                div.style.display = "block";
+
+                pdata = JSON.parse(data);
+                var inner_html = "";
+                for (var i = 0; i < pdata.Records.length; i++) {
+                    let servicesAsArray = JSON.parse(pdata.Records[i].services);
+                    const servicesAsString = servicesAsArray.join(', ');
+
+                    const img_data = "data:image/;base64," + pdata.Records[i].filedata;
+
+                    let date = new Date(pdata.Records[i].availablefrom);
+                    let day = ("0" + date.getDate()).slice(-2);
+                    let month = ("0" + (date.getMonth() + 1)).slice(-2);
+                    let year = date.getFullYear();
+                    let formattedDate = day + "-" + month + "-" + year;
+
+                    inner_html = inner_html + '<div class="col-md-6 col-lg-4 d-flex align-items-stretch "><div class="maidcard"><div class="row"><div class="col-4 col-sm-5 col-md-4 col-lg-5"><img src="' + img_data + '" alt=""><div class="rating"><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_green.svg" alt=""><img src="/content-mfolio/images/Star_grey.svg" alt=""></div><div class="review"><a href="#">12 reviews</a></div></div><div class="col-8 col-sm-7 col-md-8 col-lg-7"><div class="details"><span class="name">' + pdata.Records[i].firstname + ' ' + pdata.Records[i].lastname + '</span><span class="age">' + pdata.Records[i].experienceinyears + ' years ' + pdata.Records[i].experienceinmonths + ' months ' + '</span></div><div class="details"><span class="label">Services offered</span><span class="value">' + servicesAsString + '</span></div><div class="details"><span class="label">Available from</span><span class="value">' + formattedDate + '</span></div><a onclick="onViewDetails(\'' + pdata.Records[i].id + '\')" class="btn btn-view-details">View Details</a></div></div></div></div>';
+                }
+                divrow.innerHTML = inner_html;
+
+                //console.log(data);
+            }
+        });
+    }
+
+    function onViewDetails(id) {
+        window.location.href = "/business/home/maiddetails/" + id;
+    }
+</script>

@@ -1,0 +1,951 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ReReg";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+
+<style>
+    /* style.css */
+    /** {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }*/
+
+    /*body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }*/
+
+    .container {
+        margin: 20px auto;
+    }
+
+    .progress-container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    #progressbar {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        color: lightgrey;
+    }
+
+        #progressbar li {
+            flex: 1;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            position: relative;
+        }
+
+            #progressbar li.active {
+                color: #2F8D46;
+            }
+
+    .progress {
+        height: 20px;
+        background-color: lightgray;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        background-color: #2F8D46;
+        width: 0;
+        height: 100%;
+        transition: width 0.4s ease-in-out;
+    }
+
+    .step-container fieldset {
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+        position: relative;
+        display: none;
+    }
+
+        .step-container fieldset:first-of-type {
+            display: block;
+        }
+
+    h2 {
+        color: #2F8D46;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .next-step,
+    .previous-step {
+        /* width: 100px;
+        font-weight: bold;*/
+        color: white;
+        border: 0 none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 12px 10px 0px;
+        float: right;
+    }
+
+    .next-step {
+        background: #2F8D46;
+    }
+
+    .previous-step {
+        background: #616161;
+    }
+
+    .next-step:hover,
+    .next-step:focus {
+        background-color: #1e6f3e;
+    }
+
+    .previous-step:hover,
+    .previous-step:focus {
+        background-color: #4d4d4d;
+    }
+
+    .text {
+        color: #2F8D46;
+        font-weight: normal;
+    }
+
+    .finish {
+        text-align: center;
+    }
+
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0 !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .form-check-input:checked {
+        background-color: #2F8D46 !important;
+        border-color: #2F8D46 !important;
+    }
+</style>
+
+<div class="container">
+    <div class="progress-container">
+        <ul id="progressbar">
+            <li class="active"
+                id="step1">
+                <strong>Step 1</strong>
+            </li>
+            <li id="step2">
+                <strong>Step 2</strong>
+            </li>
+            <li id="step3">
+                <strong>Step 3</strong>
+            </li>
+            <li id="step4">
+                <strong>Step 4</strong>
+            </li>
+        </ul>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    <div class="step-container">
+        <fieldset class="maincontainer innerpage">
+            <h2>Personal Information</h2>
+            <div class="row">
+                <div class="col-sm-4">
+                    @*<label class="form-label">First Name</label>*@
+                    <input type="text" class="form-control" id="firstname" placeholder="First name">
+                    <span class="text-danger"></span>
+                </div>
+                <div class="col-sm-4">
+                    @*<label class="form-label">Last Name</label>*@
+                    <input type="text" class="form-control" id="lastname" placeholder="Last name">
+                    <span class="text-danger"></span>
+                </div>
+                <div class="col-sm-4">
+                    @*<label class="form-label">Contact Number</label>*@
+                    <input type="text" class="form-control" id="contact" placeholder="Contact">
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <input type="button" name="next-step" class="next-step" value="Next" id="stepone" onclick="javascript:onNext1Submit();" />
+
+        </fieldset>
+        <fieldset>
+            <h2>Basic Information</h2>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label class="form-label">Personal</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Language</label>
+                        <select class="select2" id="language" multiple title="Select Language" data-placeholder="Select Language">
+                            <option disabled selected>--Select Language--</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="English">English</option>
+                            <option value="Kannada">Kannada</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Gujarati">Gujarati</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="Nepali">Nepali</option>
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Assamese">Assamese</option>
+                            <option value="Maithili">Maithili</option>
+                            <option value="Meitei (Manipuri)">Meitei (Manipuri)</option>
+                            <option value="Marathi">Marathi</option>
+                            <option value="Nepali">Urdu</option>
+                            <option value="Nepali">Odia</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label block">Gender</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                            <label class="form-check-label" for="other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label class="form-label">Professional</label>
+                        <input type="number" class="form-control" id="experience" placeholder="Experience in year">
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Services Offered</label>
+                        <select class="select2" id="services" multiple title="Select Services Offered" placeholder="--Select Services Offered--">
+                            <option disabled selected>--Select Services Offered--</option>
+                            <option value="Cooking">Cooking</option>
+                            <option value="PatientCare">Patient Care</option>
+                            <option value="ElderCare">Elder Care</option>
+                            <option value="KitchenHelper">Kitchen Helper</option>
+                            <option value="BabySitter">Baby Sitter</option>
+                            <option value="ClothWashing">Cloth Washing</option>
+                            <option value="JapaMaid">Japa Maid</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Working Hours</label>
+                        <select class="select2" id="workinghours" multiple title="Select Working Hours" placeholder="--Select Working Hours--">
+                            <option disabled selected>--Select Working Hours--</option>
+                            <option value="PartTime">Part Time ( Hourly basis)</option>
+                            <option value="FullTime">FullTime ( 8-10 Hours)</option>
+                            <option value="Live_in">Live-in ( 24 hours, Stay with Client)</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <input type="button" name="next-step" class="next-step" value="Next" onclick="javascript:onNext2Submit();" />
+            <input type="button" name="previous-step" class="previous-step" value="Previous Step" />
+        </fieldset>
+        <fieldset>
+            <h2>Address & Upload</h2>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="mb-5"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input id="availableNow" type="checkbox" class="form-check-input" />Available Now
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-2">
+                        <label class="form-label">OR</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-6">
+                        <label class="form-label">Available Form</label>
+                        <input id="availableForm" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" placeholder="Years">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="mb-5"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Preferred Location</label>
+                        <br />
+                        <select multiple class="select2 form-control" id="subcity" title="Select Location" data-placeholder="--Select Location--">
+                            <option value="Anywhere in Bangalore">Anywhere in Bangalore</option>
+                            <option value="Adugodi">Adugodi</option>
+                            <option value="Agara">Agara</option>
+                            <option value="Anjanapura">Anjanapura</option>
+                            <option value="Arekere">Arekere</option>
+                            <option value="Austin Town">Austin Town</option>
+                            <option value="Babusapalya">Babusapalya</option>
+                            <option value="Bagalur">Bagalur</option>
+                            <option value="Bahubalinagar">Bahubalinagar</option>
+                            <option value="Baiyyappanahalli">Baiyyappanahalli</option>
+                            <option value="Budigere">Budigere</option>
+                            <option value="Banashankari">Banashankari</option>
+                            <option value="Banaswadi">Banaswadi</option>
+                            <option value="Basavanagudi">Basavanagudi</option>
+                            <option value="Basaveshwaranagara">Basaveshwaranagara</option>
+                            <option value="Bellandur">Bellandur</option>
+                            <option value="Bharathnagar">Bharathnagar</option>
+                            <option value="Bilekahalli">Bilekahalli</option>
+                            <option value="Binnamangala">Binnamangala</option>
+                            <option value="Bommanahalli">Bommanahalli</option>
+                            <option value="Bommasandra">Bommasandra</option>
+                            <option value="Brookefield">Brookefield</option>
+                            <option value="BTM Layout">BTM Layout</option>
+                            <option value="Byatarayanapura">Byatarayanapura</option>
+                            <option value="Carmelaram">Carmelaram</option>
+                            <option value="Chamarajpet">Chamarajpet</option>
+                            <option value="Chandapura">Chandapura</option>
+                            <option value="Chickpet">Chickpet</option>
+                            <option value="Chikkalasandra">Chikkalasandra</option>
+                            <option value="Cooke Town">Cooke Town</option>
+                            <option value="Cox Town">Cox Town</option>
+                            <option value="CV Raman Nagar">CV Raman Nagar</option>
+                            <option value="Dasarahalli">Dasarahalli</option>
+                            <option value="Devara Jeevanahalli">Devara Jeevanahalli</option>
+                            <option value="Devarachikkanahalli">Devarachikkanahalli</option>
+                            <option value="Dollars Colony">Dollars Colony</option>
+                            <option value="Domlur">Domlur</option>
+                            <option value="Ejipura">Ejipura</option>
+                            <option value="Electronic City">Electronic City</option>
+                            <option value="Fraser Town">Fraser Town</option>
+                            <option value="G. M. Palya">G. M. Palya</option>
+                            <option value="Gandhi Bazaar">Gandhi Bazaar</option>
+                            <option value="Gandhi Nagar">Gandhi Nagar</option>
+                            <option value="Gangamma Circle">Gangamma Circle</option>
+                            <option value="Ganganagar">Ganganagar</option>
+                            <option value="Garudacharpalya">Garudacharpalya</option>
+                            <option value="Girinagar">Girinagar</option>
+                            <option value="Gottigere">Gottigere</option>
+                            <option value="Gowdanapalya">Gowdanapalya</option>
+                            <option value="Hanumanthanagar">Hanumanthanagar</option>
+                            <option value="Hebbagodi">Hebbagodi</option>
+                            <option value="Hebbal">Hebbal</option>
+                            <option value="Hoodi">Hoodi</option>
+                            <option value="Horamavu">Horamavu</option>
+                            <option value="HSR Layout">HSR Layout</option>
+                            <option value="Hulimavu">Hulimavu</option>
+                            <option value="Immadihalli">Immadihalli</option>
+                            <option value="Indiranagar">Indiranagar</option>
+                            <option value="Ittamadu">Ittamadu</option>
+                            <option value="Jakkasandra">Jakkasandra</option>
+                            <option value="Jakkur">Jakkur</option>
+                            <option value="Jalahalli">Jalahalli</option>
+                            <option value="Jayanagar">Jayanagar</option>
+                            <option value="Jayaprakash Nagar">Jayaprakash Nagar</option>
+                            <option value="Jeevanbimanagar">Jeevanbimanagar</option>
+                            <option value="Jigani">Jigani</option>
+                            <option value="Kadugodi">Kadugodi</option>
+                            <option value="Kaggadasapura">Kaggadasapura</option>
+                            <option value="Kalasipalyam">Kalasipalyam</option>
+                            <option value="Kalkere">Kalkere</option>
+                            <option value="Kalyan Nagar">Kalyan Nagar</option>
+                            <option value="Kamakshipalya">Kamakshipalya</option>
+                            <option value="Kammanahalli">Kammanahalli</option>
+                            <option value="Kengeri">Kengeri</option>
+                            <option value="Kodigehalli">Kodigehalli</option>
+                            <option value="Kodihalli">Kodihalli</option>
+                            <option value="Konanakunte">Konanakunte</option>
+                            <option value="Koppa gate">Koppa gate</option>
+                            <option value="Koramangala">Koramangala</option>
+                            <option value="Krishnarajapuram">Krishnarajapuram</option>
+                            <option value="Kumaraswamy Layout">Kumaraswamy Layout</option>
+                            <option value="Kundalahalli">Kundalahalli</option>
+                            <option value="Lingarajapuram">Lingarajapuram</option>
+                            <option value="Madiwala">Madiwala</option>
+                            <option value="Mahadevapura">Mahadevapura</option>
+                            <option value="Mahalakshmi Layout">Mahalakshmi Layout</option>
+                            <option value="Malleshwaram">Malleshwaram</option>
+                            <option value="Marathahalli">Marathahalli</option>
+                            <option value="Mariyannapalya">Mariyannapalya</option>
+                            <option value="Milk Colony">Milk Colony</option>
+                            <option value="Murphy Town">Murphy Town</option>
+                            <option value="Murugeshpalya">Murugeshpalya</option>
+                            <option value="Muthyalanagar">Muthyalanagar</option>
+                            <option value="Nagarbhavi">Nagarbhavi</option>
+                            <option value="Nandini Layout">Nandini Layout</option>
+                            <option value="Nayandahalli">Nayandahalli</option>
+                            <option value="Padmanabhanagar">Padmanabhanagar</option>
+                            <option value="Palace Guttahalli">Palace Guttahalli</option>
+                            <option value="Peenya">Peenya</option>
+                            <option value="Puttenahalli">Puttenahalli</option>
+                            <option value="R. T. Nagar">R. T. Nagar</option>
+                            <option value="Rajajinagar">Rajajinagar</option>
+                            <option value="Rajarajeshwari Nagar">Rajarajeshwari Nagar</option>
+                            <option value="Ramachandrapura">Ramachandrapura</option>
+                            <option value="Ramagondanahalli">Ramagondanahalli</option>
+                            <option value="Ramamurthy Nagar">Ramamurthy Nagar</option>
+                            <option value="Ramanjaneyanagar">Ramanjaneyanagar</option>
+                            <option value="Richmond Town">Richmond Town</option>
+                            <option value="Sadashivanagar">Sadashivanagar</option>
+                            <option value="Sahakara Nagar">Sahakara Nagar</option>
+                            <option value="Sanjaynagar">Sanjaynagar</option>
+                            <option value="Seshadripura">Seshadripura</option>
+                            <option value="Shikaripalya">Shikaripalya</option>
+                            <option value="Shivajinagar">Shivajinagar</option>
+                            <option value="Shree Ananthnagara">Shree Ananthnagara</option>
+                            <option value="Siddapura">Siddapura</option>
+                            <option value="Singasandra">Singasandra</option>
+                            <option value="Suddaguntepalya">Suddaguntepalya</option>
+                            <option value="Sulikunte">Sulikunte</option>
+                            <option value="Tannery Road">Tannery Road</option>
+                            <option value="Thindlu">Thindlu</option>
+                            <option value="Thyagarajanagar">Thyagarajanagar</option>
+                            <option value="Ulsoor">Ulsoor</option>
+                            <option value="Uttarahalli">Uttarahalli</option>
+                            <option value="Varthur">Varthur</option>
+                            <option value="Vasanth Nagar">Vasanth Nagar</option>
+                            <option value="Vidyaranyapura">Vidyaranyapura</option>
+                            <option value="Vijayanagar">Vijayanagar</option>
+                            <option value="Vimanapura">Vimanapura</option>
+                            <option value="Vyalikaval">Vyalikaval</option>
+                            <option value="Whitefield">Whitefield</option>
+                            <option value="Wilson Garden">Wilson Garden</option>
+                            <option value="Yelachenahalli">Yelachenahalli</option>
+                            <option value="Yelahanka">Yelahanka</option>
+                            <option value="Yeswanthpur">Yeswanthpur</option>
+                            <option value="Kattigenahalli">Kattigenahalli</option>
+                            <option value="Yemlur">Yemlur</option>
+                            <option value="Hennur">Hennur</option>
+                            <option value="seetharampalya">seetharampalya</option>
+                            <option value="Bannerghatta">Bannerghatta</option>
+                            <option value="Sarjapur">Sarjapur</option>
+                            <option value="Kudlugate">Kudlugate</option>
+                            <option value="Haralur">Haralur</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" id="location" placeholder="Location">
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="community" placeholder="Community">
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="city" placeholder="City">
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="state" placeholder="State">
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-12">
+                        @*<label class="form-label">Complete Address</label>*@
+                        <input type="text" class="form-control" id="pincode" placeholder="Pincode">
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="mb-3">
+                        <div class="availability">
+                            <div class="form-group">
+                                <label>Upload your photo:</label>
+                                <input id="imgInput" type="file" class="form-control" placeholder="Upload Photo" />
+                                <br />
+                                <input id="imgUpload" type="button" value="Upload Photo" class="btn btnmain btn-sm save-button" />
+                                <img id="photoImg" class="img img-thumbnail" style="margin-top: 20px;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="availability">
+                            <div class="form-group">
+                                <label>Upload your identity:</label>
+                                <input id="pdfInput" type="file" class="form-control" placeholder="Upload Identity" />
+                                <br />
+                                <input id="pdfUpload" type="button" value="Upload Identity" class="btn btnmain btn-sm save-button" />
+                                <img id="pdfImg" class="img img-thumbnail" style="margin-top: 20px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <label class="form-label">About my self </label>
+                <div class="col-sm-12">
+                    <textarea id="about" rows="3" placeholder="Description..." class="form-control"></textarea>
+                </div>
+            </div>
+            <input type="button" name="next-step" class="next-step" value="Final" onclick="javascript:onFinalSubmit();" />
+            <input type="button" name="previous-step" class="previous-step" value="Previous Step" />
+        </fieldset>
+        <fieldset>
+            <h2>Previous Employer details</h2>
+            <div class="finish">
+                <div class="row">
+                    <div class="col-sm-6 col-md-5">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="empname" placeholder="Previous Employer Name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="empphno" placeholder="Previous Employer Phone Number">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <div class="mb-3">
+                            <input type="button" class="btn btn-outline-success" onclick="javascript:onAddEmployer();" value="+ Add Employer" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="addedEmployer">
+
+                </div>
+            </div>
+            <a style="text-decoration:none; color:#fff;" class="next-step" asp-area="Business" asp-controller="Home" asp-action="Index">Done</a>
+            <input type="button" name="previous-step" class="previous-step" value="Previous Step" />
+        </fieldset>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    var isValidStep = true;
+    var step = 0;
+
+    function onNext1Submit() {
+        addInitial();
+    }
+
+    function onNext2Submit() {
+        onOptionOneSubmit();
+    }
+
+    function onFinalSubmit() {
+        onOptionTwoSubmit();
+    }
+
+    function onAddEmployer() {
+        debugger;
+        var employerName = $('#empname').val();
+        var employerPhone = $('#empphno').val();
+
+        // Construct the data object to be submitted
+        var data = {
+            Id: sessionStorage.getItem("mid"),
+            EmployerName: employerName,
+            EmployerPhone: employerPhone,
+        };
+
+        console.log(data);
+
+        $.ajax({
+            url: '/business/home/addemployer',
+            type: 'POST',
+            data: data,
+            success: function (response) {
+                jdata = JSON.parse(response);
+                addedEmployer(response);
+                $('#empname').val()="";
+                $('#empphno').val()="";
+                console.log(jdata);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function addedEmployer(data) {
+        var divrow = document.getElementById("addedEmployer");
+        divrow.innerHTML = "";
+
+        //var div = document.getElementById("search_result");
+        //div.style.display = "block";
+
+        pdata = JSON.parse(data);
+        var inner_html = "";
+        for (var i = 0; i < pdata.Records.length; i++) {
+            inner_html = inner_html + '<div class="col-md-6 col-lg-3 d-flex align-items-stretch "><div class="maidcard"><div class="row"><div class="col-12 col-sm-12 col-md-12 col-lg-12"><div class="details"><span class="name">Employer ' + (i + 1) + '</span></div><div class="details"><span class="label">Employer Name: ' + pdata.Records[i].EmployerName + '</span></div><div class="details"><span class="label">Employer Contact Details: ' + pdata.Records[i].EmployerPhone + '</span></div></div></div></div></div>';
+        }
+        divrow.innerHTML = inner_html;
+    }
+
+    function addInitial() {
+        if (validateForm()) {
+            var firstname = document.getElementById('firstname').value;
+            var lastname = document.getElementById('lastname').value;
+            var contact = document.getElementById('contact').value;
+
+            let obj = new Object();
+            obj.FirstName = firstname;
+            obj.LastName = lastname;
+            obj.ContactNumber = contact;
+
+            $.ajax({
+                url: "/business/home/initialreg",
+                data: obj,
+                cache: true,
+                type: "POST",
+                success: function (data) {
+                    debugger;
+                    jdata = JSON.parse(data);
+                    if (jdata.Count === 1) {
+                        isValidStep = true;
+                        sessionStorage.setItem("mid", jdata.Records);
+                    }
+                    else {
+                        isValidStep = false;
+                        alert(jdata.Records);
+                    }
+                    console.log(data);
+                }
+            });
+        }
+    }
+
+    function onOptionOneSubmit() {
+        debugger;
+        // Get all the values
+        var age = document.getElementById('age').value;
+        var language = $('#language').val();
+        var gender = $('input[name="gender"]:checked').val();
+        var experience = document.getElementById('experience').value;
+        var services = $('#services').val();
+        var workinghours = $('#workinghours').val();
+
+        // Construct the data object to be submitted
+        var data = {
+            Id: sessionStorage.getItem("mid"),
+            Age: age,
+            Language: language,
+            Gender: gender,
+            Experience: experience,
+            Services: services,
+            WorkingHours: workinghours
+        };
+
+        console.log(data);
+
+        $.ajax({
+            url: '/business/home/regoptionone',
+            type: 'POST',
+            data: data,
+            success: function (response) {
+                jdata = JSON.parse(response);
+                console.log(jdata);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function onOptionTwoSubmit() {
+        var availableNow = document.getElementById('availableNow').checked;
+        var availableForm = document.getElementById('availableForm').value;
+        var location = document.getElementById('location').value;
+        var community = document.getElementById('community').value;
+        var city = document.getElementById('city').value;
+        var state = document.getElementById('state').value;
+        var pincode = document.getElementById('pincode').value;
+        var subcity = $('#subcity').val();
+        var about = document.getElementById('about').value;
+
+        var data = {
+            Id: sessionStorage.getItem("mid"),
+            IsAvailable: availableNow,
+            AvailableFrom: availableForm,
+            Location: location,
+            Community: community,
+            City: city,
+            State: state,
+            Pincode: pincode,
+            About: about,
+            PreferredLocation: subcity
+        };
+        console.log(data);
+
+        $.ajax({
+            url: '/business/home/regoptiontwo',
+            type: 'POST',
+            data: data,
+            success: function (response) {
+                jdata = JSON.parse(response);
+                console.log(jdata);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    $("#pdfUpload").click(function () {
+        debugger;
+        var fileInput = $("#pdfInput")[0];
+        var file = fileInput.files[0];
+        //var sid = $("#sessionId").val();
+
+        if (file) {
+            var formData = new FormData();
+            formData.append("file", file);
+
+            $.ajax({
+                url: "/Business/Home/UploadPDF?sid=" + sessionStorage.getItem("mid"), // Update the URL to match your controller's action method
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    debugger;
+                    if (result.success) {
+                        console.log("pdf File uploaded successfully");
+                        //("#identityHiddenInput").val(result.id);
+                        $("#pdfInput").val(null);
+                        addPdf(result.src);
+                    }
+
+                    // Handle success
+                },
+                error: function (error) {
+                    console.log("Error uploading file");
+                    // Handle error
+                }
+            });
+        } else {
+            console.log("No file selected");
+            displayErrorMessage("File not selected!")
+        }
+    });
+
+    $("#imgUpload").click(function () {
+        debugger;
+        var fileInput = $("#imgInput")[0];
+        var file = fileInput.files[0];
+        //var sid = $("#sessionId").val();
+
+        if (file) {
+            var formData = new FormData();
+            formData.append("file", file);
+            //formData.append('id', sid);
+            $.ajax({
+                url: "/Business/Home/UploadImage?sid=" + sessionStorage.getItem("mid"), // Update the URL to match your controller's action method
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    debugger;
+                    if (result.success) {
+                        debugger;
+                        //displaySuccessfullMessage("File uploaded successfully!");
+                        console.log("Image File uploaded successfully");
+                        //$("#photoHiddenInput").val(result.id);
+                        $("#imgInput").val(null);
+                        addImage(result.src);
+                    }
+                },
+                error: function (error) {
+                    console.log("Error uploading file");
+                    // Handle error
+                }
+
+            });
+        } else {
+            console.log("No file selected");
+            displayErrorMessage("File not selected!")
+            // Handle case where no file is selected
+        }
+    });
+
+    //function addImage(hexData) {
+    //    $("#photoImg").show();
+    //    $("#photoImg").attr("src", "data:image/;base64," + hexData);
+    //}
+
+    //function addPdf(hexData) {
+    //    $("#pdfImg").show();
+    //    $("#pdfImg").attr("src", "data:image/;base64," + hexData);
+    //}
+
+    function addImage(hexData) {
+        var photoImg = document.getElementById("photoImg");
+        photoImg.style.display = "block";
+        photoImg.src = "data:image/;base64," + hexData;
+    }
+
+    function addPdf(hexData) {
+        var pdfImg = document.getElementById("pdfImg");
+        pdfImg.style.display = "block";
+        pdfImg.src = "data:image/;base64," + hexData;
+    }
+
+
+    function validateForm() {
+        var firstname = document.getElementById('firstname').value;
+        var lastname = document.getElementById('lastname').value;
+        var contact = document.getElementById('contact').value;
+
+        var nameRegex = /^[a-zA-Z]+$/;
+        var contactRegex = /^\d{10}$/;
+
+        if (!nameRegex.test(firstname)) {
+            alert('Please enter a valid first name.');
+            isValidStep = false;
+            return false;
+        }
+
+        if (!nameRegex.test(lastname)) {
+            alert('Please enter a valid last name.');
+            isValidStep = false;
+            return false;
+        }
+
+        if (!contactRegex.test(contact)) {
+            alert('Please enter a valid 10-digit contact number.');
+            isValidStep = false;
+            return false;
+        }
+        //isValidStep = true;
+        return true;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectedServices = document.getElementById("subcity");
+        selectedServices.value = "";
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const progressListItems = document.querySelectorAll("#progressbar li");
+        const progressBar = document.querySelector(".progress-bar");
+        let currentStep = 0;
+
+        function updateProgress() {
+            const percent =
+                (currentStep / (progressListItems.length - 1)) * 100;
+            progressBar.style.width = percent + "%";
+
+            progressListItems.forEach((item, index) => {
+                if (index === currentStep) {
+                    item.classList.add("active");
+                } else {
+                    item.classList.remove("active");
+                }
+            });
+        }
+
+        function showStep(stepIndex) {
+            const steps =
+                document.querySelectorAll(".step-container fieldset");
+            steps.forEach((step, index) => {
+                if (index === stepIndex) {
+                    step.style.display = "block";
+                } else {
+                    step.style.display = "none";
+                }
+            });
+            step = stepIndex;
+        }
+
+        function nextStep() {
+            debugger;
+            setTimeout(() => {
+                if (isValidStep) {
+                    if (currentStep < progressListItems.length - 1) {
+                        currentStep++;
+                        showStep(currentStep);
+                        updateProgress();
+                    }
+                }
+            }, 20);
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+            }
+        }
+
+        const nextStepButtons = document.querySelectorAll(".next-step");
+        const prevStepButtons = document.querySelectorAll(".previous-step");
+
+        nextStepButtons.forEach((button) => {
+            button.addEventListener("click", nextStep);
+        });
+
+        prevStepButtons.forEach((button) => {
+            button.addEventListener("click", prevStep);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectedLanguage = document.getElementById("language");
+        selectedLanguage.value = ""; // Reset the selected value
+        // Initialize select2
+
+        var selectedWorkinghours = document.getElementById("workinghours");
+        selectedWorkinghours.value = "";
+
+        var selectedServices = document.getElementById("services");
+        selectedServices.value = "";
+
+        $('.select2').select2();
+
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var availableNowCheckbox = document.getElementById('availableNow');
+        var dateInput = document.getElementById('availableForm');
+
+        availableNowCheckbox.addEventListener('change', function () {
+            dateInput.disabled = this.checked;
+        });
+    });
+    //if (isNaN(age) || age < 18 || age > 60) {
+    //    alert('Please enter a valid age between 1 and 100.');
+    //    return;
+    //}
+</script>

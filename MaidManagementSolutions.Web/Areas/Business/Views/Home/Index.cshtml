@@ -1,0 +1,289 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .modal {
+        --bs-modal-width: 1188px !important;
+    }
+
+    .iam {
+        color: white;
+        font-size: 24px;
+        padding: 15px;
+        font-family: sans-serif;
+        color: black;
+    }
+
+    .text {
+        /*border-right: 2px solid rgb(255 119 2);*/
+        font-size: 24px;
+        font-family: sans-serif;
+        color: rgb(255 119 2);
+    }
+
+    .text-type {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .text-body {
+        /* background-color: black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*min-height: 100vh;*/
+    }
+
+    .typed-cursor {
+        display: none !important; /* Hide the cursor */
+    }
+
+    .typed-cursor--blink {
+        display: none !important; /* Hide the cursor */
+    }
+</style>
+
+<div class="container">
+    <div class="row main-banner justify-content-lg-center">
+        <div class="col-sm-12 col-lg-5">
+            <div class="banner-content">
+                <h2>Are you looking for a maid?</h2>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btnmain" asp-area="business" asp-controller="home" asp-action="SearchMaid"> Find Maid </a>
+                }
+                else
+                {
+                    @*<button type="button" class="btn btnmain" data-bs-toggle="modal" data-bs-target="#myModal"> Find Maid </button>*@
+                    <a asp-area="client" asp-controller="account" asp-action="login" class="btn btn btnmain" role="button">
+                        <i class="fa fa-sign-in me-2"></i> Find Maid
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-sm-12 col-lg-6 ">
+            <div class="banner">
+                <img class="banner-img" src="~/content-mfolio/images/maids.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="register-as-maid">
+        <div class="row justify-content-lg-center">
+            <div class="col-lg-5">
+                <a asp-area="business" asp-controller="home" asp-action="rereg"> <img src="~/content-mfolio/images/register_as_maid.svg" alt="Register as maid"></a>
+            </div>
+            <div class="col-lg-7"></div>
+        </div>
+
+    </div>
+
+    <div class="maid-folio align-items-center">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>What is maidfolio</h4>
+                <p>
+                    Our online platform first-of-its-kind in background verification with previous employer's. It will helps
+                    to hire reliable and trustworthy domestic workers.
+                </p>
+            </div>
+            <div class="col-md-6 registered-box">
+                <div class="registerd">
+                    <img src="~/content-mfolio/images/registered.svg" alt="">
+                    <p>We are registered with Govt Departments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="maid-folio align-items-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Why use maidfolio</h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <h4><i class="fa fa-file-text-o"></i>  Avoid Agency </h4>
+                <p>
+                    You can directly connect to the
+                    workers to save Agency fees and
+                    hidden charges.
+                </p>
+
+            </div>
+            <div class="col-md-4">
+                <h4><i class="fa fa-user-o"></i>  Profile Information </h4>
+                <p>
+                    Extensive profile information helps
+                    to better selection.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4><i class="fa fa-search"></i>  Background verification </h4>
+                <p>
+                    Previous employer feedback is included
+                    in addition to the standard background
+                    verification process.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="services-box">
+        <div class="allservices">
+
+            <h4 class="service-heading">Our services <span><img src="~/content-mfolio/images/arrow.svg" alt=""></span></h4>
+            <div class="services">
+                <img src="~/content-mfolio/images/nanny.svg" alt="">
+                <img src="~/content-mfolio/images/cook.svg" alt="">
+                <img src="~/content-mfolio/images/patientcare.svg" alt="">
+                <img src="~/content-mfolio/images/cleaning.svg" alt="">
+            </div>
+        </div>
+
+        <div class="places-box">
+            <h6 class="service-heading-small">
+                Our services are available at<span>
+                    <img src="~/content-mfolio/images/arrow.svg"
+                         alt="">
+                </span>
+            </h6>
+            <ul class="places">
+                <li><img src="~/content-mfolio/images/bangalore.svg" alt=""><span>Bangalore</span></li>
+                <li><img src="~/content-mfolio/images/delhi.svg" alt=""><span>Delhi</span></li>
+                <li><img src="~/content-mfolio/images/mumbai.svg" alt=""><span>Mumbai</span></li>
+                <li><img src="~/content-mfolio/images/chennai.svg" alt=""><span>Chennai</span></li>
+                <li><img src="~/content-mfolio/images/kochi.svg" alt=""><span>Kochi</span></li>
+                <li><img src="~/content-mfolio/images/hyderabad.svg" alt=""><span>Hyderabad</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-lg-7">
+            <div class="testimonials" style="height: 200px;">
+                <span class="quote"></span>
+                @*<span> Please proviide your suggestion...</span>*@
+                @*<p>
+                        Lorem ipsum dolor sit amet consectetur. Amet enim quis rhoncus netus egestas. Lobortis netus ut
+                        vestibulum amet molestie interdum. Tincidunt et vulputate pellentesque sit morbi. Nisl nec tempus ni
+                    </p>*@
+                <textarea id="txtSuggestion" class="form-control" cols="3" placeholder="Please provide your suggestion..."></textarea>
+                <br />
+                <a class="btn btnmain" style="float:right" onclick="onSubmitSuggestion()"> Submit Suggestion </a>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-5 aligncenter">
+
+            <div class="support">
+                <div class="call">
+                    <img src="~/content-mfolio/images/call.svg" />
+                    <div class="detail">
+
+                        <a href="tel:555-555-5555">9008092627</a>
+                        <span>Call for support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="container mt-3">
+        <h3>Modal Example</h3>
+        <p>Click on the button to open the modal.</p>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            Open modal
+        </button>
+    </div>*@
+
+<!-- Bootstrap 5 JavaScript Bundle with Popper -->
+<!-- Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <a class="modal-title" asp-area="Business" asp-controller="Home" asp-action="Index">
+                    <img src="~/content-mfolio/images/maidfolio.svg" alt="">
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <section>
+                    <div class="row">
+                        <div class="col-md-8 col-lg-7 col-xl-6 text-type text-body">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+                        </div>
+                        <div class="col-md-7 col-lg-5 col-xl-5" style="padding-top: 100px; padding-left: 60px;">
+                            <h4 class="modal-title">Get started</h4>
+                            <br />
+                            <a asp-area="client" asp-controller="account" asp-action="login" class="btn btn btnmain" role="button">
+                                <i class="fa fa-sign-in me-2"></i>Login
+                            </a>
+                            <a asp-area="client" asp-controller="account" asp-action="registration" class="btn btn btnmain" style="margin-left: 50px;" role="button">
+                                <i class="fa fa-id-card me-2"></i>Register
+                            </a>
+                            <div class="text-type text-body">
+                                <div class="iam">Looking for</div>
+                                <div class="text"></div>
+                                <div class="iam">service</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style=" background-color: rgb(255 119 2); border-color: rgb(255 119 2);" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+<script>
+
+    var typing = new Typed(".text", {
+        strings: ["", "domestic help", "cooking", "cleaning", "babysitter", "cloth washing", "patient care", "elder care", "kitchen helper", "japa maid", "all-rounders"],
+        typeSpeed: 100,
+        backSpeed: 40,
+        loop: true,
+    });
+
+    function onSubmitSuggestion() {
+        //let suggestion = document.getElementById('txtSuggestion');
+        let suggestion = $('#txtSuggestion').val();
+
+        $.ajax({
+            url: '/business/home/addsuggestion?sugg=' + suggestion,
+            type: 'GET',
+            success: function (response) {
+                let jdata = JSON.parse(response);
+                alert(jdata.Records);
+                document.getElementById('txtSuggestion').value = '';
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+</script>

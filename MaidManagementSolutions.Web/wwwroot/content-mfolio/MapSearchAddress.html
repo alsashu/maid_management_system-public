@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps with Search</title>
+    <!-- Include the Google Maps API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQnzyeQJkCjbxDE-RHXkx3RP1OCMie9AQ&libraries=places"></script>
+</head>
+<body>
+    <h1>Google Maps with Search</h1>
+    <!-- Search input for location -->
+    <input id="locationInput" type="text" placeholder="Search for a location">
+    <!-- Map container -->
+    <div id="map" style="height: 400px;"></div>
+
+    <!-- Include your JavaScript code -->
+    <script>
+        // app.js
+
+// Function to initialize the map
+function initMap() {
+    // Initial map options (you can customize these)
+    const mapOptions = {
+        center: { lat: 37.7749, lng: -122.4194 }, // Default center (San Francisco)
+        zoom: 12, // Default zoom level
+    };
+
+    // Create a new map
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    // Create a search box and link it to the input field
+    const input = document.getElementById('locationInput');
+    const searchBox = new google.maps.places.SearchBox(input);
+
+    // Bias the search results towards the current map's viewport
+    map.addListener('bounds_changed', () => {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    // Listen for the event triggered when the user selects a prediction
+    searchBox.addListener('places_changed', () => {
+        const places = searchBox.getPlaces();
+
+        if (places.length === 0) {
+            return;
+        }
+
+        // Clear any existing markers
+        markers.forEach((marker) => {
+            marker.setMap(null);
+        });
+
+        // Create a marker for the selected place
+        const bounds = new google.maps.LatLngBounds();
+        places.forEach((place) => {
+            if (!place.geometry) {
+                console.error('Returned place contains no geometry');
+                return;
+            }
+
+            const marker = new google.maps.Marker({
+                map,
+                title: place.name,
+                position: place.geometry.location,
+            });
+
+            // Extend the bounds to include the marker
+            bounds.extend(place.geometry.location);
+            markers.push(marker);
+        });
+
+        // Fit the map to the bounds of the selected places
+        map.fitBounds(bounds);
+    });
+}
+
+// Array to store markers
+const markers = [];
+
+    </script>
+</body>
+</html>

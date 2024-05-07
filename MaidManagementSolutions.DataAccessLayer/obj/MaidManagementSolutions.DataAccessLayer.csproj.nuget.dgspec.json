@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj": {}
+  },
+  "projects": {
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj",
+        "projectName": "MaidManagementSolutions.DataAccessLayer",
+        "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\joshi\\.nuget\\packages\\",
+        "outputPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

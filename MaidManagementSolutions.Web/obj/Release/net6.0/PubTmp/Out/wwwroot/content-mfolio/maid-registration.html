@@ -1,0 +1,380 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="container">
+        <div class="inner-header">
+          <a href="index.html">
+          <img src="images/maidfolio.svg" alt="">
+        </a>
+          <span class="profile">user</span>
+
+          <div class="main-popup">
+            <div class="popup-nav">
+              <a href="#" class="profile_link">Profile</a>
+              <a href="#" class="logout_link">Logout</a>
+            </div>
+          </div>
+      
+        </div>
+        <h4 class="page-heading">Register as Maid</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequuntur blanditiis perspiciatis.
+          Aliquid accusantium repudiandae corporis sit omnis </p>
+
+    </header>
+
+    <div class="maincontainer innerpage">
+
+      <div class="container">
+
+
+        <div class="row">
+          <div class="col-sm-6">
+            <form>
+              <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname">
+              </div>
+              <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname">
+              </div>
+              <div class="mb-3">
+                <label for="phno" class="form-label">Phone No</label>
+                <input type="text" class="form-control" id="phno">
+              </div>
+              <div class="mb-3">
+                <label for="gender" class="form-label block">Gender</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="male" value="male">
+                  <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="female" value="female">
+                  <label class="form-check-label" for="female">Female</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="col-2">
+                  <label for="age" class="form-label">Age</label>
+                  <input type="text" class="form-control" id="age">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="location" placeholder="Location">
+                <input type="text" class="form-control" id="community" placeholder="comunity">
+                <input type="text" class="form-control" id="city" placeholder="city">
+                <input type="text" class="form-control" id="state" placeholder="state">
+              </div>
+              <div class="mb-3">
+                <label for="Address" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="pincode" placeholder="pincode">
+              </div>
+              <div class="mb-3">
+                <label for="experience" class="form-label">Experience</label>
+                <div class="row">
+
+                  <div class="col-4">
+                    <input type="text" class="form-control" id="years" placeholder="years">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" id="months" placeholder="months">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="education" class="form-label">Education</label>
+                <input type="text" class="form-control" id="education">
+              </div>
+              <div class="mb-3">
+                <label for="marital" class="form-label block">Marital Status</label>
+                <div class="row">
+                  <div class="col6">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="married" value="married">
+                      <label class="form-check-label" for="married">Married</label>
+                    </div>
+
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="widow" value="widow">
+                      <label class="form-check-label" for="widow">Widow</label>
+                    </div>
+                  </div>
+                  <div class="col6">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="unmarried" value="unmarried">
+                      <label class="form-check-label" for="unmarried">Unmarried</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="services" class="form-label block">Services</label>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="cooking" value="cooking">
+                      <label class="form-check-label" for="cooking">Cooking</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="cleaning" value="cleaning">
+                      <label class="form-check-label" for="cleaning">Cleaning</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="babysitter" value="babysitter">
+                      <label class="form-check-label" for="babysitter">Baby Sitter</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="washing" value="washing">
+                      <label class="form-check-label" for="washing">Cloth Washing</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="patient" value="patient">
+                      <label class="form-check-label" for="unmarried">Patient Care</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="eldercare" value="eldercare">
+                      <label class="form-check-label" for="eldercare">Elder Care</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="kitchenhelper" value="kitchenhelper">
+                      <label class="form-check-label" for="kitchenhelper">Kitchen Helper</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="japamaid" value="japamaid">
+                      <label class="form-check-label" for="japamaid">Japa Maid</label>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="mb-3">
+                <label for="services" class="form-label block">Language</label>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="kannada" value="kannada">
+                      <label class="form-check-label" for="kannada">Kannada</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="malayalan" value="malayalan">
+                      <label class="form-check-label" for="malayalan">Malayalam</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="tamil" value="tamil">
+                      <label class="form-check-label" for="tamil">Tamil</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="gujarati" value="gujarati">
+                      <label class="form-check-label" for="gujarati">Gujarati</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="hindi" value="hindi">
+                      <label class="form-check-label" for="hindi">Hindi</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="telugu" value="telugu">
+                      <label class="form-check-label" for="telugu">Telugu</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="english" value="english">
+                      <label class="form-check-label" for="english">English</label>
+                    </div>
+                    <div class="form-check mt">
+                      <input class="form-check-input" type="checkbox" id="bengali" value="bengali">
+                      <label class="form-check-label" for="bengali">Bengali</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="row">
+
+                  <label for="inputPassword2" class="form-label ">Add Language</label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" id="language" placeholder="language">
+                  </div>
+                  <div class="col-4">
+                    <button type="submit" class="btnsecondary">+</button>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+
+          </div>
+          <div class="col-sm-1 col-md-1"></div>
+          <div class="col-sm-6 col-md-5">
+
+            <div class="mb-3">
+              <label for="marital" class="form-label block">Working Hours</label>
+              <div class="row">
+                <div class="col6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="parttime" value="parttime">
+                    <label class="form-check-label" for="parttime">Part Time ( Hourly basis)</label>
+                  </div>
+
+                  <div class="form-check mt">
+                    <input class="form-check-input" type="checkbox" id="fulltime" value="fulltime">
+                    <label class="form-check-label" for="fulltime">Full Time ( 8-10 Hours)</label>
+                  </div>
+
+                  <div class="form-check mt">
+                    <input class="form-check-input" type="checkbox" id="livein" value="livein">
+                    <label class="form-check-label" for="livein">Live-in ( 24 hours, Stay with Client)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="about" class="form-label">About Yourself</label>
+              <textarea class="form-control" id="about" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="upload" class=".form-label">Upload your Photo and Aadhar Card</label>
+              <div class="uploaddocs">
+                <button type="submit" class="uploadbutton">+</button>
+                <button type="submit" class="uploadbutton">+</button>
+              </div>
+              <div class="docs">
+                <img src="https://placehold.co/100x100" alt="">
+                <img src="https://placehold.co/100x100" alt="">
+              </div>
+              <div class="alerts success" role="alert">
+                <p>photo uploaded succesfully</p>
+                <p>Aadhar card uploaded succesfully</p>
+              </div>
+              <div class="alerts failed" role="alert">
+                <p>photo upload failed</p>
+                <p>Aadhar card upload failed</p>
+              </div>
+            </div>
+
+            <div class="mb-3">
+
+              <h6>Previous Employer deails</h6>
+              <div class="mb-3">
+                <label for="empname" class="form-label">Name</label>
+                <input type="text" class="form-control" id="empname">
+              </div>
+              <div class="mb-3">
+                <label for="empphno" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="empphno">
+              </div>
+
+            </div>
+            <div class="mb-3">
+              <div class="availability">
+                <h6>Availability</h6>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="avlblnow" value="Available">
+                  <label class="form-check-label" for="avlblnow">Available now</label>
+                </div>
+                <p>OR</p>
+                <div class="mb-3">
+                  <label for="experience" class="form-label">Available from</label>
+                  <div class="row">
+
+                    <div class="col-4">
+                      <input type="text" class="form-control" id="year" placeholder="year">
+                    </div>
+                    <div class="col-4">
+                      <input type="text" class="form-control" id="month" placeholder="month">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <div class="container maid-reg">
+          <a href="maid-details.html" class="btn btnmain btn-large save-button">Save</a>
+
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+    <div class="popup-bg"></div>
+
+  </div>
+
+  </div>
+
+
+  </div>
+  <footer>
+    <div class="container">
+  
+      <p>Copyright @maidfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      $(".profile").click(function () {
+
+        $('.main-popup').show();
+        $('.popup-bg').show();
+        $('body').addClass("fixed");
+
+      });
+      $(".popup-bg").click(function () {
+
+$('.main-popup').hide();
+$('.popup-bg').hide();
+$('body').removeClass("fixed");
+
+});
+    });
+
+
+
+  </script>
+
+</body>
+
+
+</html>

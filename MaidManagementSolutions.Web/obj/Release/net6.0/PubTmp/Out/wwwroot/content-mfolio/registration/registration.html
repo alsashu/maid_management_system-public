@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1.0"> 
+	<title> 
+		Custom Multi-Step Progress Bar 
+	</title> 
+	<link rel="stylesheet"
+		href="registration.css"> 
+</head> 
+
+<body> 
+	<div class="container"> 
+		<div class="progress-container"> 
+			<ul id="progressbar"> 
+				<li class="active"
+					id="step1"> 
+					<strong>Step 1</strong> 
+				</li> 
+				<li id="step2"> 
+					<strong>Step 2</strong> 
+				</li> 
+				<li id="step3"> 
+					<strong>Step 3</strong> 
+				</li> 
+				<li id="step4"> 
+					<strong>Step 4</strong> 
+				</li> 
+			</ul> 
+			<div class="progress"> 
+				<div class="progress-bar"></div> 
+			</div> 
+		</div> 
+		<div class="step-container"> 
+			<fieldset> 
+				<h2>Welcome To GFG Step 1</h2> 
+				<input type="button"
+					name="next-step"
+					class="next-step"
+					value="Next Step" /> 
+			</fieldset> 
+			<fieldset> 
+				<h2>Welcome To GFG Step 2</h2> 
+				<input type="button"
+					name="next-step"
+					class="next-step"
+					value="Next Step" /> 
+				<input type="button"
+					name="previous-step"
+					class="previous-step"
+					value="Previous Step" /> 
+			</fieldset> 
+			<fieldset> 
+				<h2>Welcome To GFG Step 3</h2> 
+				<input type="button"
+					name="next-step"
+					class="next-step"
+					value="Final Step" /> 
+				<input type="button"
+					name="previous-step"
+					class="previous-step"
+					value="Previous Step" /> 
+			</fieldset> 
+			<fieldset> 
+				<div class="finish"> 
+					<h2 class="text"> 
+						<strong>FINISHED</strong> 
+					</h2> 
+				</div> 
+				<input type="button"
+					name="previous-step"
+					class="previous-step"
+					value="Previous Step" /> 
+			</fieldset> 
+		</div> 
+	</div> 
+	<script src="registration.js"></script> 
+</body> 
+
+</html>

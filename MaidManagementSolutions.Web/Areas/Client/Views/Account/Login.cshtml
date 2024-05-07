@@ -1,0 +1,175 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MaidManagementSolutions.ViewModel.LoginViewModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+<link href="~/content/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- CSS Files -->
+<link href="~/content/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="~/content/assets/demo/demo.css" rel="stylesheet" />
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .modal {
+        --bs-modal-width: 1188px !important;
+    }
+
+    .iam {
+        color: white;
+        font-size: 24px;
+        padding: 15px;
+        font-family: sans-serif;
+        color: black;
+    }
+
+    .text {
+        /*border-right: 2px solid rgb(255 119 2);*/
+        font-size: 24px;
+        font-family: sans-serif;
+        color: rgb(255 119 2);
+    }
+
+    .text-type {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .text-body {
+        /* background-color: black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*min-height: 100vh;*/
+    }
+
+    .typed-cursor {
+        display: none !important; /* Hide the cursor */
+    }
+
+    .typed-cursor--blink {
+        display: none !important; /* Hide the cursor */
+    }
+
+    .card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+        background: linear-gradient(60deg, #2b9061, #2b9061) !important;
+    }
+
+    .btn.btn-rose.btn-link {
+        color: #2b9061 !important;
+    }
+
+    .card .form-check {
+        margin-left: 22px !important;
+    }
+</style>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="form" action="/client/Account/Login" method="post">
+
+                <div class="card card-login">
+                    <div class="card-header card-header-success text-center">
+                        <h4 class="card-title">Login</h4>                       
+                    </div>
+                    <div class="card-body ">
+                        <span class="bmd-form-group">
+
+                        </span>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">phone_iphone</i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Contact Number..." data-val="true" data-val-required="Contact Number is required" id="PhoneNumber" name="PhoneNumber" value="">
+                            </div>
+                            <span style="display: block; padding-left: 55px;" class="text-danger next field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                        </span>
+
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                </div>
+                                <input id="typepass" type="password" class="form-control" placeholder="Password..." data-val="true" data-val-required="Password is required" name="Password">
+                            </div>
+                            <span style="display: block; padding-left: 55px;" class="text-danger next field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                        </span>
+                       
+                       @* <br>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" onclick="Toggle()">
+                                <span class="form-check-sign">
+                                    <span class="check"></span>
+                                </span>
+                                Show Password
+                            </label>
+                        </div>*@
+                    </div>
+                    <div class="card-footer justify-content-center">
+                        <input type="submit" value="Lets Go" class="btn btnmain">
+                    </div>
+                    <div class="card-footer justify-content-center">
+                       Don't have a account ! 
+                        <a class="btn btn-rose btn-link btn-lg" role="button" href="/client/account/registration">
+                            <i class="fa fa-id-card me-2"></i>Register
+                        </a>
+                    </div>
+                </div>
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8BiK58vc0h1Eh360pSjw6W--KyoMp1e3KA7tYSG7kLjUOtOGomexNllthSKHA1PDJ_vyHz4y_soDZalRykQQc9Ebtc1dBGZMG3Qx0mAIMnkJ2DDBosVj5_SX54UZK1N6c1mzucDvlnqHACPt-cfTlqY">
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+<script>
+
+    var typing = new Typed(".text", {
+        strings: ["", "domestic help", "cooking", "cleaning", "babysitter", "cloth washing", "patient care", "elder care", "kitchen helper", "japa maid", "all-rounders"],
+        typeSpeed: 100,
+        backSpeed: 40,
+        loop: true,
+    });
+
+    function onSubmitSuggestion() {
+        //let suggestion = document.getElementById('txtSuggestion');
+        let suggestion = $('#txtSuggestion').val();
+
+        $.ajax({
+            url: '/business/home/addsuggestion?sugg=' + suggestion,
+            type: 'GET',
+            success: function (response) {
+                let jdata = JSON.parse(response);
+                alert(jdata.Records);
+                document.getElementById('txtSuggestion').value = '';
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,438 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MaidManagementSolutions.ViewModel.CompositeViewModel
+
+@{
+    ViewData["Title"] = "Maid-Registration";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+
+<style>
+    .page-heading {
+        font-family: "Roboto Slab", serif;
+        color: #312352;
+        margin: 0px 0 10px !important;
+    }
+
+    .maincontainer {
+        padding: 30px 0px;
+        background: #F7F9FD;
+    }
+
+    .filediv {
+        position: relative;
+        width: 102px;
+        height: 38px;
+        /* overflow: hidden;*/
+        cursor: pointer;
+    }
+
+    .fileinput {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .filebtn {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 8px;
+        background-color: lightblue;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <h4 class="page-heading">Register as Maid</h4>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequuntur blanditiis perspiciatis.
+        Aliquid accusantium repudiandae corporis sit omnis
+    </p>
+
+    @*<span id="errorMessage" class="text-danger"></span>*@
+
+    <div id="errorMessage" class="alert alert-danger"></div>
+    <div id="successfulMessage" class="alert alert-success"></div>
+
+    @*<div class="float-right">
+            <a class="float-right" asp-action="Index">Back to Home</a>
+        </div>*@
+</div>
+<div class="maincontainer innerpage">
+    <div class="container">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.FirstName" class="form-label">First Name</label>
+                        <input asp-for="MaidViewModel.FirstName" class="form-control" id="firstname">
+                        <span asp-validation-for="MaidViewModel.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.LastName" class="form-label">Last Name</label>
+                        <input asp-for="MaidViewModel.LastName" class="form-control" id="lastname">
+                        <span asp-validation-for="MaidViewModel.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.ContactNumber" class="form-label">Phone No</label>
+                        <input asp-for="MaidViewModel.ContactNumber" type="text" class="form-control" id="phno">
+                        <span asp-validation-for="MaidViewModel.ContactNumber" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.MaidViewModel.SelectedGender, new { @class = "form-label block" })
+                        @Html.DropDownListFor(model => model.MaidViewModel.SelectedGender, Model.MaidViewModel.GenderList, "Select Gender", new { @class = "form-control select2" })
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.Age" class="form-label">Age</label>
+                        <div class="col-3">
+                            <input asp-for="MaidViewModel.Age" class="form-control" placeholder="Age (in years)">
+                            <span asp-validation-for="MaidViewModel.Age" class="text-danger"></span>
+                        </div>
+
+                        @*<div class="col-2">
+                <div class="flex items-center border border-neutral-300 w-fit rounded m-8">
+                    <button type="button" onclick="decrementValue(this)" class="h-10 w-10 rounded border-r border-gray-300 bg-transparent focus:outline-none">-</button>
+
+                    <input id="yourActualId" type="number" value="0" class="h-10 w-16 text-center  [&::-webkit-inner-spin-button]:appearance-none" />
+
+                    <button type="button" onclick="incrementValue(this)" class="h-10 w-10 rounded border-l border-neutral-300 bg-transparent focus:outline-none">+</button>
+                </div>
+            </div>*@
+                    </div>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">Address</label>
+                        <input asp-for="MaidViewModel.Location" type="text" class="form-control" id="location" placeholder="Location">
+                        <input asp-for="MaidViewModel.Community" type="text" class="form-control" id="community" placeholder="Comunity">
+                        <input asp-for="MaidViewModel.City" class="form-control" id="city" placeholder="city">
+                        <input asp-for="MaidViewModel.State" class="form-control" id="state" placeholder="state">
+                        <label for="Address" class="form-label">Complete Address</label>
+                        <input asp-for="MaidViewModel.Address" type="text" class="form-control" placeholder="Complete Address">
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.Pincode" class="form-label">Pincode</label>
+                        <input asp-for="MaidViewModel.Pincode" class="form-control" id="pincode" placeholder="pincode">
+                        <span asp-validation-for="MaidViewModel.Pincode" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="experience" class="form-label">Experience</label>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <input asp-for="MaidViewModel.ExperienceInYears" class="form-control" id="years" placeholder="years">
+                                <span asp-validation-for="MaidViewModel.ExperienceInYears" class="text-danger"></span>
+                            </div>
+                            <div class="col-4">
+                                <input asp-for="MaidViewModel.ExperienceInMonths" class="form-control" id="months" placeholder="months">
+                                <span asp-validation-for="MaidViewModel.ExperienceInMonths" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.Eduction" class="form-label">Education</label>
+                        <input asp-for="MaidViewModel.Eduction" type="text" class="form-control" id="education" placeholder="Education">
+                        <span asp-validation-for="MaidViewModel.Eduction" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.MaidViewModel.SelectedMaritalStatus, new { @class = "form-label block" })
+                        @Html.DropDownListFor(model => model.MaidViewModel.SelectedMaritalStatus, Model.MaidViewModel.MaritalStatusList, "Select Marital Status", new { @class = "form-control select2" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.MaidViewModel.SelectedMaritalStatus, new { @class = "form-label block" })
+                        @Html.DropDownListFor(model => model.MaidViewModel.SelectedMaritalStatus, Model.MaidViewModel.MaritalStatusList, "Select Marital Status", new { @class = "form-control select2" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.MaidViewModel.SelectedServices, new { @class = "form-label block" })
+                        @*@Html.DropDownListFor(model => model.SelectedServices, Model.ServicesList, "Select Services", new { @class = "form-control", @multiple = "multiple" })*@
+                        @Html.ListBoxFor(model => model.MaidViewModel.SelectedServices, Model.MaidViewModel.ServicesList, new { @class = "form-control select2", multiple = "multiple" })
+
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.MaidViewModel.SelectedLanguage, new { @class = "form-label block" })
+                        @*@Html.DropDownListFor(model => model.SelectedLanguage, Model.LanguageList, "Select Language", new { @class = "form-control", @multiple = "multiple" })*@
+                        @Html.ListBoxFor(model => model.MaidViewModel.SelectedLanguage, Model.MaidViewModel.LanguageList, new { @class = "form-control select2", multiple = "multiple" })
+
+                    </div>
+                    @*<div class="mb-3">
+            <div class="row">
+
+                <label for="inputPassword2" class="form-label ">Add Language</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="language" placeholder="language">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btnsecondary">+</button>
+                </div>
+            </div>
+        </div>*@
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-6 col-md-5">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col6">
+                                @Html.LabelFor(model => model.MaidViewModel.SelectedWorkingHours, new { @class = "form-label block" })
+                                @Html.DropDownListFor(model => model.MaidViewModel.SelectedWorkingHours, Model.MaidViewModel.WorkingHoursList, "Select Working Hours", new { @class = "form-control select2" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MaidViewModel.About" class="form-label">About Yourself</label>
+                        <textarea asp-for="MaidViewModel.About" class="form-control" id="about" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Upload your Photo and Identity Proof</h6>
+
+                        <div class="availability">
+                            <div class="form-group">
+                                <label>Upload your photo:</label>
+                                <input id="imgInput" type="file" class="form-control" placeholder="Upload Photo" />
+                                <br />
+                                <input id="imgUpload" type="button" value="Upload Photo" class="btn btnmain btn-sm save-button" />
+                                <img id="photoImg" class="img img-thumbnail" style="margin-top:20px" />
+                                @*<input asp-for="MaidViewModel.PhotoId" class="form-control" type="text" id="photoHiddenInput" name="hiddenInput">*@
+                            </div>
+                        </div>
+                        <br />
+                        <div class="availability">
+                            <div class="form-group">
+                                <label>Upload your identity:</label>
+                                <input id="pdfInput" type="file" class="form-control" placeholder="Upload Identity" />
+                                <br />
+                                <input id="pdfUpload" type="button" value="Upload Identity" class="btn btnmain btn-sm save-button" />
+                                <img id="pdfImg" class="img img-thumbnail" style="margin-top:20px" />
+                                @*<input asp-for="MaidViewModel.IdentityId" class="form-control" type="text" id="identityHiddenInput" name="hiddenInput">*@
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Previous Employer deails</h6>
+                        <div class="mb-3">
+                            <label asp-for="MaidViewModel.PreviousEmployerName" class="form-label">Name</label>
+                            <input asp-for="MaidViewModel.PreviousEmployerName" type="text" class="form-control" id="empname" placeholder="Previous Employer Name">
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="MaidViewModel.PreviousEmployerContactNumber" class="form-label">Phone Number</label>
+                            <input asp-for="MaidViewModel.PreviousEmployerContactNumber" type="text" class="form-control" id="empphno" placeholder="Previous Employer Phone Number">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="availability">
+                            <h6>Availability</h6>
+                            <div class="form-check mb-3">
+                                @*<input asp-for="Availability.isAvailable" class="form-check-input" type="checkbox" id="avlblnow" value="Available">
+                                    <label class="form-check-label" for="avlblnow">Available now</label>*@
+
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="MaidViewModel.isAvailable" /> @Html.DisplayNameFor(model => model.MaidViewModel.isAvailable)
+                                </label>
+                            </div>
+                            <p>OR</p>
+                            <div class="mb-3">
+                                <label for="experience" class="form-label">Available from</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="date" asp-for="MaidViewModel.AvailableFrom" asp-format="{0:yyyy-MM-dd}" value="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" placeholder="years">
+                                        <span asp-validation-for="MaidViewModel.AvailableFrom" class="text-danger"></span>
+                                    </div>
+                                    @*<div class="col-4">
+                                        <input asp-for="MaidViewModel.AvailableFromMonths" class="form-control" id="month" placeholder="month">
+                                        <span asp-validation-for="MaidViewModel.AvailableFromMonths" class="text-danger"></span>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input id="sessionId" type="hidden" asp-for="MaidViewModel.Id" />
+
+            </div>
+            <div class="form-footer">
+                <div class="container maid-reg">
+                    <input type="submit" value="Save" class="btn btnmain btn-large save-button" />
+                </div>
+            </div>
+            
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/content-mfolio/select2/dist/js/select2.full.min.js"></script>
+
+<script>
+    function incrementValue(button) {
+        var input = button.parentNode.querySelector('input[type=number]');
+        var value = parseInt(input.value, 10);
+        input.value = value + 1;
+    }
+
+    function decrementValue(button) {
+        var input = button.parentNode.querySelector('input[type=number]');
+        var value = parseInt(input.value, 10);
+        if (value > 0) {
+            input.value = value - 1;
+        }
+    }
+    // Disable the "Select Gender" option
+    document.addEventListener('DOMContentLoaded', function () {
+        var selectedGender = document.getElementById('SelectedGender');
+        if (selectedGender) {
+            selectedGender.options[0].disabled = true;
+        }
+    });
+
+    // Disable the "Select Marital Status" option
+    document.addEventListener('DOMContentLoaded', function () {
+        var selectedMaritalStatus = document.getElementById('SelectedMaritalStatus');
+        if (selectedMaritalStatus) {
+            selectedMaritalStatus.options[0].disabled = true;
+        }
+    });
+
+    // Disable the "Select Marital Status" option
+    document.addEventListener('DOMContentLoaded', function () {
+        var selectedWorkingHours = document.getElementById('SelectedWorkingHours');
+        if (selectedWorkingHours) {
+            selectedWorkingHours.options[0].disabled = true;
+        }
+    });
+
+    $("#pdfUpload").click(function () {
+        debugger;
+        var fileInput = $("#pdfInput")[0];
+        var file = fileInput.files[0];
+        var sid = $("#sessionId").val();
+        
+        if (file) {
+            var formData = new FormData();
+            formData.append("file", file);
+            
+            $.ajax({
+                url: "/Business/Home/UploadPDF?sid=" + sid, // Update the URL to match your controller's action method
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    debugger;
+                    if (result.success) {
+                        console.log("pdf File uploaded successfully");
+                        $("#identityHiddenInput").val(result.id);
+                        $("#pdfInput").val(null);
+                        addPdf(result.src);
+                    }
+                    
+                    // Handle success
+                },
+                error: function (error) {
+                    console.log("Error uploading file");
+                    // Handle error
+                }
+            });
+        } else {
+            console.log("No file selected");
+            displayErrorMessage("File not selected!")
+        }
+    });
+
+    $("#imgUpload").click(function () {
+        debugger;
+        var fileInput = $("#imgInput")[0];
+        var file = fileInput.files[0];
+        var sid = $("#sessionId").val();
+        
+        if (file) {
+            var formData = new FormData();
+            formData.append("file", file);
+            //formData.append('id', sid);
+            $.ajax({
+                url: "/Business/Home/UploadImage?sid=" + sid, // Update the URL to match your controller's action method
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    debugger;
+                    if (result.success) {
+                        debugger;
+                        //displaySuccessfullMessage("File uploaded successfully!");
+                        console.log("Image File uploaded successfully");
+                        $("#photoHiddenInput").val(result.id);
+                        $("#imgInput").val(null);
+                        addImage(result.src);
+                    }
+                },
+                error: function (error) {
+                    console.log("Error uploading file");
+                    // Handle error
+                }
+                
+            });
+        } else {
+            console.log("No file selected");
+            displayErrorMessage("File not selected!")
+            // Handle case where no file is selected
+        }
+    });
+
+    function displayErrorMessage(error) {
+        $("#errorMessage").text(error);
+
+        // Show the span
+        $("#errorMessage").fadeIn();
+
+        // Set a timeout to hide the span after 5 seconds
+        setTimeout(function () {
+            // Slowly hide the span
+            $("#errorMessage").fadeOut("slow");
+        }, 5000);
+    }
+
+    function displaySuccessfullMessage(message) {
+        $("#successfulMessage").text(message);
+
+        // Show the span
+        $("#successfulMessage").fadeIn();
+
+        // Set a timeout to hide the span after 5 seconds
+        setTimeout(function () {
+            // Slowly hide the span
+            $("#successfulMessage").fadeOut("slow");
+        }, 5000);
+    }
+
+    function addImage(hexData) {
+        $("#photoImg").show();
+        $("#photoImg").attr("src", "data:image/;base64," + hexData);
+    }
+
+    function addPdf(hexData) {
+        $("#pdfImg").show();
+        $("#pdfImg").attr("src", "data:image/;base64," + hexData);
+    }
+
+    $(document).ready(function () {
+        let sessionId = $("#sessionId").val();
+        console.log(sessionId);
+        $("#errorMessage").hide();
+        $("#successfulMessage").hide();
+        $("#photoImg").hide();
+        $("#pdfImg").hide();
+    });
+
+</script>

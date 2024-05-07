@@ -1,0 +1,220 @@
+{
+  "format": 1,
+  "restore": {
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.Web\\MaidManagementSolutions.Web.csproj": {}
+  },
+  "projects": {
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj",
+        "projectName": "MaidManagementSolutions.DataAccessLayer",
+        "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\joshi\\.nuget\\packages\\",
+        "outputPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\MaidManagementSolutions.ViewModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\MaidManagementSolutions.ViewModel.csproj",
+        "projectName": "MaidManagementSolutions.ViewModel",
+        "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\MaidManagementSolutions.ViewModel.csproj",
+        "packagesPath": "C:\\Users\\joshi\\.nuget\\packages\\",
+        "outputPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.Web\\MaidManagementSolutions.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.Web\\MaidManagementSolutions.Web.csproj",
+        "projectName": "MaidManagementSolutions.Web",
+        "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.Web\\MaidManagementSolutions.Web.csproj",
+        "packagesPath": "C:\\Users\\joshi\\.nuget\\packages\\",
+        "outputPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj": {
+                "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.DataAccessLayer\\MaidManagementSolutions.DataAccessLayer.csproj"
+              },
+              "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\MaidManagementSolutions.ViewModel.csproj": {
+                "projectPath": "H:\\MaidFolioWorkSpace\\MaidManagementSolutions\\MaidManagementSolutions.ViewModel\\MaidManagementSolutions.ViewModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

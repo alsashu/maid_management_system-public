@@ -1,0 +1,13 @@
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\bin\Debug\net6.0\MaidManagementSolutions.ViewModel.deps.json
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\bin\Debug\net6.0\MaidManagementSolutions.ViewModel.dll
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\bin\Debug\net6.0\MaidManagementSolutions.ViewModel.pdb
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.csproj.AssemblyReference.cache
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.AssemblyInfoInputs.cache
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.AssemblyInfo.cs
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.csproj.CoreCompileInputs.cache
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.sourcelink.json
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.dll
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\refint\MaidManagementSolutions.ViewModel.dll
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\MaidManagementSolutions.ViewModel.pdb
+H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.ViewModel\obj\Debug\net6.0\ref\MaidManagementSolutions.ViewModel.dll

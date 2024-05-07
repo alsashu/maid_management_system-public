@@ -1,0 +1,688 @@
+﻿@using System.Security.Claims
+@model MaidManagementSolutions.ViewModel.MaidViewModel
+
+@{
+    ViewData["Title"] = "MaidDetails";
+    Layout = "~/Views/Shared/_LayoutCustomize.cshtml";
+}
+
+<div class="container maid-head">
+    <div class="card-maid">
+
+        <div class="maid-pic">
+            <img src="data:image;base64,@ViewBag.ImageBase64" alt="profile_image" style="width: 150px;">
+            <div class="review">
+                <a href="#" class="share"> Share</a>
+            </div>
+        </div>
+        <div class="maid-details">
+            <div class="details">
+                <span class="name bold">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
+                <div class="rating" id="mainRating">
+
+                </div>
+            </div>
+
+            <a href="#" class="phno"> <img src="~/content-mfolio/images/ph.svg" alt="">+91-@Html.DisplayFor(model => model.ContactNumber)</a>
+            <p class=" small">Available Immediately</p>
+            @*<a href="maid-registration.html" class="btn sec-btn"> Edit Profile</a>*@
+            @*<p class="recharge-warning">You dont have enough balance in your account. Pls recharge to get the contact details</p>*@
+        </div>
+    </div>
+</div>
+
+<div class="maincontainer maiddetailspage">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="maid-details-list">
+                    <li>
+                        <label>Age</label>
+                        <span class="value">@Html.DisplayFor(model => model.Age) years</span>
+                    </li>
+                    <li>
+                        <label>Experience</label>
+                        <span class="value">@Html.DisplayFor(model => model.ExperienceInYears) years @Html.DisplayFor(model => model.ExperienceInMonths) months</span>
+                    </li>
+                    @*<li>
+                <label>Education</label>
+                <span class="value">@Html.DisplayFor(model => model.Eduction)</span>
+            </li>*@
+                    <li>
+                        <label>Known Languages</label>
+                        <span class="value">@ViewBag.LanguageAvailable</span>
+                    </li>
+                    <li>
+                        <label>Services Offered</label>
+                        <span class="value">@ViewBag.ServicesAvailable</span>
+                    </li>
+                    <li>
+                        <label>Available from</label>
+                        <span class="value">@Html.DisplayFor(model => model.Availability)</span>
+                    </li>
+                    @*<li>
+                <label>Current Location</label>
+                <span class="value">@Html.DisplayFor(model => model.Location)</span>
+            </li>*@
+                    <li>
+                        <label>City</label>
+                        <span class="value">@Html.DisplayFor(model => model.City)</span>
+                    </li>
+                    <li>
+                        <label>Pincode</label>
+                        <span class="value">@Html.DisplayFor(model => model.Pincode)</span>
+                    </li>
+                    <li>
+                        <label>Preferred Location</label>
+                        @for (int i = 0; i < Model.PreferredLocation.Length; i++)
+                        {
+                            <span class="value">@Model.PreferredLocation[i]</span>
+                        }
+
+                    </li>
+                    @*<li>
+                <label>Family Background</label>
+                <span class="value">NA </span>
+            </li>*@
+                    <li>
+                        <label>About Myself</label>
+                        <span class="value">@Html.DisplayFor(model => model.About)</span>
+                    </li>
+
+                    <li>
+                        <label></label>
+                        <span class="value"></span>
+                    </li>
+                    <li>
+                        <label></label>
+                        <span class="value"></span>
+                    </li>
+                    <li>
+                        <label></label>
+                        <span class="value"></span>
+                    </li>
+                </ul>
+
+                <div id="average_review">
+                    <div class="SFueOp" style="border-radius: 20px;">
+                        <div class="_14YOVU">
+                            <div class="_2sxtk-"><span>Overall Ratings & Reviews</span></div>
+                            <hr class="_2wWxJN">
+                            <div class="_2oX9Q9">
+                                <div id="overAllUserRating">
+
+                                </div>
+
+                                <div id="starBasedRating" class="row">
+                                    <div class="side">
+                                        <div>5 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>150</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>4 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>63</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>3 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>15</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>2 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>6</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>1 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>20</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="average_review">
+                    <div class="SFueOp" style="border-radius: 20px; min-height:165px!important">
+                        <div class="_14YOVU">
+                            <div class="_2sxtk-"><span>Report Profile</span></div>
+                            <hr class="_2wWxJN">
+                            <div class="_2oX9Q9">
+                                <div id="overAllUserRating">
+                                    <div class="btn-group">
+                                        <button id="listedByAgency" onclick="javascript: onReportProfileSubmit(this);">
+                                            Listed by agency
+                                        </button>
+                                        <button id="notAvailable" onclick="javascript:onReportProfileSubmit(this);">
+                                            Not available
+                                        </button>
+                                        <button id="wrongInfo" onclick="javascript:onReportProfileSubmit(this);">
+                                            Wrong info
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                @*<div class="whatsnotcorrect">
+                        <h6>Report what wasnt correct on this profile</h6>
+                        <ul class="whatsnot">
+                            <li class="selected">listed by broker</li>
+                            <li>Not availabe</li>
+                            <li>Wrong contact info</li>
+                        </ul>
+                    </div>*@
+
+                <div>
+                    <div class="SFueOp" style="border-radius: 20px;">
+                        <div class="_14YOVU">
+                            <div class="_2sxtk-"><span>Rate for this resource</span></div>
+                            <div class="_2oX9Q9">
+                                <div class="feedback-container">
+                                    <div class="emoji-container">
+                                        <i class="far fa-angry fa-3x"></i>
+                                        <i class="far fa-frown fa-3x"></i>
+                                        <i class="far fa-meh fa-3x"></i>
+                                        <i class="far fa-smile fa-3x"></i>
+                                        <i class="far fa-laugh fa-3x"></i>
+                                    </div>
+
+                                    <div class="rating-container">
+                                        <i class="fas fa-star fa-2x active"></i>
+                                        <i class="fas fa-star fa-2x"></i>
+                                        <i class="fas fa-star fa-2x"></i>
+                                        <i class="fas fa-star fa-2x"></i>
+                                        <i class="fas fa-star fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="_2wWxJN">
+                        <div class="O5at2W">
+                            <div class="_2sxtk-"><span>Review for this resource</span></div>
+                            @*<p>Mobile Phone: @User.FindFirstValue(ClaimTypes.MobilePhone)</p>
+                                <p>Name: @User.FindFirstValue(ClaimTypes.Name)</p>
+                                <p>Actor: @User.FindFirstValue(ClaimTypes.Actor)</p>*@
+                            <input id="iptName" type="hidden" value="@User.FindFirstValue(ClaimTypes.Name)" />
+                            <input id="iptId" type="hidden" value="@User.FindFirstValue(ClaimTypes.Actor)" />
+                            <div class="_1ZQ26Q">
+                                <div class="_2sHnX9 _3K-dCa">
+                                    @*<div class="_3YWnd8 _3DuRnP"><span>Description cannot be empty</span></div>*@
+                                    @*<div class="_24yZfu"><span>Description</span></div>*@
+                                    <textarea id="iptDescription" rows="8" placeholder="Description..." class="_3kRe7w"></textarea>
+                                </div>
+                                <hr class="_2wWxJN">
+                                <div class="_2sHnX9">
+                                    <div class="_24yZfu"><span>Title (optional)</span></div>
+                                    <input id="iptReviewTitle" placeholder="Review title..." class="_3kRe7w" value="" fdprocessedid="b5c26b">
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="Ld8Y0-">
+                                <div class="_1OHFns"><input class="_1_lIQp" id="fk-i36vjr9qoc" type="file" accept="image/*" multiple=""><label class="_1HAA0Y" for="fk-i36vjr9qoc"></label></div>
+                            </div>*@
+                        <button class="_2KpZ6l UoOCF0 _3AWRsL" onclick="javascript:onReviewSubmit();">Submit</button>
+                    </div>
+                </div>
+
+                <div id="clientReview"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="refine_filter_popup">
+    <div class="wrapper-inner">
+        <header>
+            <div class="container">
+                <h6>Refine Search</h6>
+                <button type="submit" class="btn btn-light close-button">X</button>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label for="services" class="form-label block">Gender</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="male" value="male">
+                                    <label class="form-check-label" for="male">male</label>
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="female"
+                                           value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location"
+                               placeholder="Area : HSR, Madiwala, Whitefield..">
+                        <input type="text" class="form-control" id="community"
+                               placeholder="Comunity : Prestige shantiniketan, shobha esplanade...">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="services" class="form-label block">Services</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cooking"
+                                           value="cooking">
+                                    <label class="form-check-label" for="cooking">Cooking</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="cleaning"
+                                           value="cleaning">
+                                    <label class="form-check-label" for="cleaning">Cleaning</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="babysitter"
+                                           value="babysitter">
+                                    <label class="form-check-label" for="babysitter">Baby Sitter</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="washing"
+                                           value="washing">
+                                    <label class="form-check-label" for="washing">Cloth Washing</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="patient"
+                                           value="patient">
+                                    <label class="form-check-label" for="unmarried">Patient Care</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="eldercare"
+                                           value="eldercare">
+                                    <label class="form-check-label" for="eldercare">Elder Care</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="kitchenhelper"
+                                           value="kitchenhelper">
+                                    <label class="form-check-label" for="kitchenhelper">
+                                        Kitchen
+                                        Helper
+                                    </label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="japamaid"
+                                           value="japamaid">
+                                    <label class="form-check-label" for="japamaid">Japa Maid</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="mb-3">
+                        <label for="services" class="form-label block">Language</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="kannada"
+                                           value="kannada">
+                                    <label class="form-check-label" for="kannada">Kannada</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="malayalan"
+                                           value="malayalan">
+                                    <label class="form-check-label" for="malayalan">Malayalam</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="tamil" value="tamil">
+                                    <label class="form-check-label" for="tamil">Tamil</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="gujarati"
+                                           value="gujarati">
+                                    <label class="form-check-label" for="gujarati">Gujarati</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="hindi" value="hindi">
+                                    <label class="form-check-label" for="hindi">Hindi</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="telugu" value="telugu">
+                                    <label class="form-check-label" for="telugu">Telugu</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="english"
+                                           value="english">
+                                    <label class="form-check-label" for="english">English</label>
+                                </div>
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="bengali"
+                                           value="bengali">
+                                    <label class="form-check-label" for="bengali">Bengali</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="marital" class="form-label block">Working Hours</label>
+                        <div class="row">
+                            <div class="col6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="parttime"
+                                           value="parttime">
+                                    <label class="form-check-label" for="parttime">
+                                        Part Time ( Hourly
+                                        basis)
+                                    </label>
+                                </div>
+
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="fulltime"
+                                           value="fulltime">
+                                    <label class="form-check-label" for="fulltime">
+                                        Full Time ( 8-10
+                                        Hours)
+                                    </label>
+                                </div>
+
+                                <div class="form-check mt">
+                                    <input class="form-check-input" type="checkbox" id="livein" value="livein">
+                                    <label class="form-check-label" for="livein">
+                                        Live-in ( 24 hours, Stay with
+                                        Client)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-footer form-popup">
+            <div class="container">
+                <button type="submit" class="btn btn-light cancel-button">Cancel</button>
+                <button type="submit" class="btn btnmain btn-large ">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    const starsEl = document.querySelectorAll(".fa-star");
+    const emojisEl = document.querySelectorAll(".far");
+    const colorsArray = ["red", "orange", "lightblue", "lightgreen", "green"];
+
+    var rating = 0;
+
+    updateRating(3);
+
+    starsEl.forEach((starEl, index) => {
+        starEl.addEventListener("click", () => {
+            updateRating(index);
+        });
+    });
+
+    function updateRating(index) {
+        //console.log(index + 1);
+        rating = index + 1;
+        starsEl.forEach((starEl, idx) => {
+            if (idx < index + 1) {
+                starEl.classList.add("active");
+            } else {
+                starEl.classList.remove("active");
+            }
+        });
+
+        emojisEl.forEach((emojiEl) => {
+            emojiEl.style.transform = `translateX(-${index * 50}px)`;
+            emojiEl.style.color = colorsArray[index];
+        });
+    }
+
+    function onReviewSubmit() {
+        const currentUrl = window.location.href;
+        const segments = currentUrl.split('/');
+        const maidId = segments[segments.length - 1];
+
+        let obj = new Object();
+        obj.MaidId = maidId;
+        obj.ClientId = $('#iptId').val();
+        obj.ReviewedBy = $('#iptName').val();
+        obj.Rating = rating;
+        obj.Review = $('#iptDescription').val();
+        obj.Title = $('#iptReviewTitle').val();
+
+        $.ajax({
+            url: "/business/home/addreview",
+            data: obj,
+            cache: true,
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("iptDescription").value = "";
+                document.getElementById("iptReviewTitle").value = "";
+                updateRating(3);
+                showReview(data);
+                setInterval(getReview(), 2000);
+                setInterval(getAverageReview(), 2000);
+                setInterval(getGroupCount(), 2000);
+            }
+        });
+    }
+
+    function showReview(data) {
+        debugger;
+        var divrow = document.getElementById("clientReview");
+        divrow.innerHTML = "";
+        let pdata = JSON.parse(data);
+        var inner_html = "";
+        for (var i = 0; i < pdata.Records.length; i++) {
+            let date = new Date(pdata.Records[i].reviewdate);
+            let day = ("0" + date.getDate()).slice(-2);
+            let month = ("0" + (date.getMonth() + 1)).slice(-2);
+            let year = date.getFullYear();
+            let formattedDate = day + "-" + month + "-" + year;
+
+            var rating_star = ""
+            for (var j = 0; j < pdata.Records[i].rating; j++) {
+                rating_star = rating_star + '<img src="/content-mfolio/images/Star_green.svg" alt="">';
+            }
+
+            let review = '<br /><div class="reviews-box"><h5 class="subhead">' + pdata.Records[i].title + '</h5><ul class="reviews"><li><p>' + pdata.Records[i].review + '</p><div class="rating">' + rating_star + '</div><div class="reviewer"><span class="name">' + pdata.Records[i].reviewedby + '</span><span class="value">' + formattedDate + '</span></div></li></ul></div>';
+            inner_html = inner_html + review;
+        }
+        divrow.innerHTML = inner_html;
+    }
+
+    function getReview() {
+        const currentUrl = window.location.href;
+        const segments = currentUrl.split('/');
+        const maidId = segments[segments.length - 1];
+        $.ajax({
+            url: "/business/home/getreview?id=" + maidId,
+            cache: true,
+            type: "GET",
+            success: function (data) {
+                showReview(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getAverageReview() {
+        const currentUrl = window.location.href;
+        const segments = currentUrl.split('/');
+        const maidId = segments[segments.length - 1];
+        $.ajax({
+            url: "/business/home/getaveragereview?id=" + maidId,
+            cache: true,
+            type: "GET",
+            success: function (data) {
+                var divrow = document.getElementById("starBasedRating");
+                divrow.innerHTML = "";
+                let pdata = JSON.parse(data);
+                var inner_html = '';
+                for (var i = 0; i < pdata.Records.length; i++) {
+                    if (pdata.Records[i].rating === 5) {
+                        inner_html = inner_html + '<div class="side"><div>' + pdata.Records[i].rating + 'star</div></div><div class="middle"><div class="bar-container"><div class="bar-5" style="width: ' + pdata.Records[i].total + '%;"></div></div></div><div class="side right"><div>' + pdata.Records[i].total + '</div></div>';
+                    }
+                    if (pdata.Records[i].rating === 4) {
+                        inner_html = inner_html + '<div class="side"><div>' + pdata.Records[i].rating + 'star</div></div><div class="middle"><div class="bar-container"><div class="bar-4" style="width: ' + pdata.Records[i].total + '%;"></div></div></div><div class="side right"><div>' + pdata.Records[i].total + '</div></div>';
+                    }
+
+                    if (pdata.Records[i].rating === 3) {
+                        inner_html = inner_html + '<div class="side"><div>' + pdata.Records[i].rating + 'star</div></div><div class="middle"><div class="bar-container"><div class="bar-3" style="width: ' + pdata.Records[i].total + '%;"></div></div></div><div class="side right"><div>' + pdata.Records[i].total + '</div></div>';
+                    }
+
+                    if (pdata.Records[i].rating === 2) {
+                        inner_html = inner_html + '<div class="side"><div>' + pdata.Records[i].rating + 'star</div></div><div class="middle"><div class="bar-container"><div class="bar-2" style="width: ' + pdata.Records[i].total + '%;"></div></div></div><div class="side right"><div>' + pdata.Records[i].total + '</div></div>';
+                    }
+
+                    if (pdata.Records[i].rating === 1) {
+                        inner_html = inner_html + '<div class="side"><div>' + pdata.Records[i].rating + 'star</div></div><div class="middle"><div class="bar-container"><div class="bar-1" style="width: ' + pdata.Records[i].total + '%;"></div></div></div><div class="side right"><div>' + pdata.Records[i].total + '</div></div>';
+                    }
+                }
+
+                divrow.innerHTML = inner_html;
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getGroupCount() {
+        const currentUrl = window.location.href;
+        const segments = currentUrl.split('/');
+        const maidId = segments[segments.length - 1];
+        $.ajax({
+            url: "/business/home/getgroupcount?id=" + maidId,
+            cache: true,
+            type: "GET",
+            success: function (data) {
+                debugger;
+                let pdata = JSON.parse(data);
+                if (pdata.Records[0].average != null) {
+                    var divrow = document.getElementById("overAllUserRating");
+                    divrow.innerHTML = "";
+
+                    var inner_html = "";
+                    let content1 = '<span class="heading">User Rating</span>';
+                    let content2 = Math.ceil(pdata.Records[0].average);
+                    for (var i = 0; i < content2; i++) {
+                        inner_html = inner_html + '<span class="fa fa-star checked"></span>';
+                    }
+                    let content3 = '<p>' + pdata.Records[0].average + ' average based on ' + pdata.Records[0].total + ' reviews.</p>';
+
+                    let content4 = content1 + inner_html + content3;
+
+                    divrow.innerHTML = content4;
+
+                    updateMainRating(content2);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function updateMainRating(content) {
+        var divrow = document.getElementById("mainRating");
+        var inner_html = "";
+        for (var i = 0; i < content; i++) {
+            inner_html = inner_html + '<img src="' + config.contextPath + 'content-mfolio/images/Star_green.svg" alt="">';
+        }
+        for (var i = 0; i < 5 - content; i++) {
+            inner_html = inner_html + '<img src="' + config.contextPath + 'content-mfolio/images/Star_grey.svg" alt="">';
+        }
+        divrow.innerHTML = inner_html;
+    }
+
+    function onReportProfileSubmit(e) {
+        const currentUrl = window.location.href;
+        const segments = currentUrl.split('/');
+        const maidId = segments[segments.length - 1];
+
+        let obj = new Object();
+        obj.MaidId = maidId;
+        obj.ClientId = $('#iptId').val();
+        obj.ReportingComment = e.innerText;
+        
+        $.ajax({
+            url: "/business/home/reportprofile",
+            data: obj,
+            cache: true,
+            type: "POST",
+            success: function (data) {
+                let pdata = JSON.parse(data);
+                console.log(pdata);
+                alert(e.innerText+" "+pdata.Records);
+            }
+        });
+    }
+
+    window.onload = function () {
+        setInterval(getReview(), 2000);
+        setInterval(getAverageReview(), 2000);
+        setInterval(getGroupCount(), 2000);
+    };
+</script>

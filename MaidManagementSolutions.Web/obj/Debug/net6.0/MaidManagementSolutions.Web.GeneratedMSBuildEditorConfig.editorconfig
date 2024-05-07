@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MaidManagementSolutions.Web
+build_property.RootNamespace = MaidManagementSolutions.Web
+build_property.ProjectDir = H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = H:\MaidFolioWorkSpace\MaidManagementSolutions\MaidManagementSolutions.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Admin/Views/Maid/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFpZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Admin/Views/Maid/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFpZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/FindMaid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxGaW5kTWFpZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/MaidDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxNYWlkRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/MaidReg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxNYWlkUmVnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/MaidRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxNYWlkUmVnaXN0cmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/ReReg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxSZVJlZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/SearchMaid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxTZWFyY2hNYWlkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Home/SearchResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcSG9tZVxTZWFyY2hSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Business/Views/Maid/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVzaW5lc3NcVmlld3NcTWFpZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Client/Views/Account/Login-ashu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFZpZXdzXEFjY291bnRcTG9naW4tYXNodS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Client/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFZpZXdzXEFjY291bnRcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Client/Views/Account/Registration-ashu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFZpZXdzXEFjY291bnRcUmVnaXN0cmF0aW9uLWFzaHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Areas/Client/Views/Account/Registration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFZpZXdzXEFjY291bnRcUmVnaXN0cmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Shared/_FileUpload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GaWxlVXBsb2FkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Shared/_LayoutCustomize.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDdXN0b21pemUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/MaidFolioWorkSpace/MaidManagementSolutions/MaidManagementSolutions.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qjhoy4m4uv
